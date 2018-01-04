@@ -26,7 +26,7 @@ if(!(Get-Module Logging -All)) {
 $computername = $env:computername
 $systemdir = $env:windir + "\System32"
 $backuptime = (get-date -format MMddyyyy-HHmmss)
-$global:_logfile = "c:\logs\Backup_DC_" + $backuptime + ".log"
+$global:_logfile = "c:\logs\Backup_AD_" + $computername + "_" + $backuptime + "_" + ".log"
 $logfile = $global:_logfile
 
 function Backup_DC {
