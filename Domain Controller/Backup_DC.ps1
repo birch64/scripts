@@ -1,16 +1,20 @@
 ﻿<# 
    Description: Backup script to backup systemstate of DC's with additional logging
 
-   31/10/2016 Version 1.2 Dennis Dehouwer
-    * Updated for new forest ITGLO.net
-   
-   20/10/2015 Version 1.1 Bart Debo
-    * Fix local 5 day rotation by adding timestamp to backup folder.
-    * Fix log file when process hangs.
-
    Author: Dennis Dehouwer
    Date: 15/09/2015
    Version: 1.0
+   
+   CHANGES
+   4/1/2018 (1.3):
+    * Added github repository, for all future changes please check: https://github.com/birch64/scripts.git
+   
+	31/10/2016 (1.2 - Dennis Dehouwer)
+    * Updated for new forest ITGLO.net
+   
+   20/10/2015 (1.1 - Bart Debo)
+    * Fix local 5 day rotation by adding timestamp to backup folder.
+    * Fix log file when process hangs.
 #>
 
 #Importing modules
@@ -105,7 +109,7 @@ function Send-MailOutput {
 	$attach = Get-Item $logfile
 	$from = $computername + "_Backup_AD@katoennatie.com"
 	$to = "dennis.dehouwer@katoennatie.com","it_notification@katoennatie.com"
-	$subject = "[Info] Backup " + $computername + " Result"
+	$subject = "[Info] Backup AD " + $computername + " Result"
 	$smtp = "s-be-ki-smtp.ktn.group"
 	
 	Send-MailMessage -From $from -To $to -Subject $subject -Attachments $attach -SmtpServer $smtp
