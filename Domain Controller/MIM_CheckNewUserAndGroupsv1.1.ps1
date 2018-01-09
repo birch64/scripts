@@ -19,7 +19,7 @@ function CheckNewUsersAndGroups () {
 		[parameter(Mandatory=$false)]
 		[string]$Hours=4,
 		[parameter(Mandatory=$false)]
-		[string[]]$Sites=("FR-SMC","IT-CRE","BE-AC")
+		[string[]]$Sites=("FR-SMC","IT-CRE","BE-AC","BR-PAU")
 	)
 
     #Importing modules
